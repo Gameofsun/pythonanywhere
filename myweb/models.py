@@ -16,9 +16,9 @@ class Choice(models.Model):
         return f'{self.question.question_text} - {self.choice_text} - {self.votes}'
 
 
-class Movie(models.Model):
-    MovieType = models.CharField(max_length = 200)
-    MovieName = models.CharField(max_length = 200)
-
+class comment(models.Model):
+    namewrite = models.CharField(max_length=200)
+    detail = models.CharField(max_length=1000)
+    rating = models.IntegerField(default=0, max_length=10)
     def __str__(self):
-        return f'{self.MovieType} - {self.MovieName} '
+        return f'{self.namewrite} - {self.detail} - {self.rating}'

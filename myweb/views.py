@@ -1,3 +1,4 @@
+
 from django.shortcuts import render, redirect
 
 #importเครื่องมือ
@@ -5,6 +6,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import AuthenticationForm
+from .models import comment as Comments
+from .forms import commentform
 
 # Create your views here.
 def index(req):
@@ -16,11 +19,17 @@ def one(req):
 #def two(req):
    #return render(req, 'myweb/login.html')
 
+
+
 def Register(req):
     return render(req, 'myweb/register.html')
 
 def Login(req):
     return render(req, 'myweb/login.html')
+
+def Rating(req):
+    comments = Comments.objects.all()
+    return render(req, 'myweb/rating.html',{'comments':comments})
 
 def Register(req):
     if req.method == "POST":
@@ -70,3 +79,19 @@ def logout(req):
     logout(req)
     messages.info(req, "Logged out successfully!")
     return redirect(" ")
+
+
+
+def comment(request):
+    if request.method == 'POST':
+        form = commentform(request.POST)
+
+        if form.is_valid():
+            a = form.save()
+            a.save()
+            return redirect("/Rating")
+    else:
+        form = commentform()
+        context = {'form': form}
+        return render(request, 'myweb/comments.html', context)
+

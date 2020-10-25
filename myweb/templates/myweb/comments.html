@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html prefix="og: https://ogp.me/ns#" lang="th">
 <head>
@@ -66,14 +65,14 @@
 <span class="icon-bar"></span>
 <span class="icon-bar"></span>
 </button>
-<a class="navbar-brand" href="http://gameofsun.pythonanywhere.com/index">หน้าแรก</a>
+<a class="navbar-brand" href="http:http://gameofsun.pythonanywhere.com/index">หน้าแรก</a>
 </div>
 
 <div class="navbar-collapse collapse">
 <ul class="nav navbar-nav">
 <li><a href="/one">ติดต่อเรา</a></li>
 </ul>
-<form class="navbar-form navbar-right" action="https://www.anime-sugoi.com/index.php" role="search">
+<form class="navbar-form navbar-right" method="POST" role="search">
 <div class="form-group">
 <input name="search" type="text" id="show_arti_topic" class="form-control" placeholder="ค้นหาการ์ตูน" value="">
 </div>
@@ -93,16 +92,21 @@
 <h3 class="panel-title">GameOfSun</h3>
 </div>
 <div class="panel-body">
-<div class="row">
-<div class="col-xs-6 col-sm-4 col-md-3 center_lnwphp">
-<div class="panel-body">
-<h1 style="text-align:center">ติดต่อเรา</h1>
-<h2 style="text-align:center">E-mail: Setthawat.sa.62@ubu.ac.th </h2>
-<h2 style="text-align:center">Facebook: https://www.facebook.com/GameOfSunGaming</h2>
-</div>
-</div>
 
-</div>
+
+
+
+{% block content %}
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" />
+    </form>
+    {% endblock %}
+
+
+
+
 <div class="clearfix visible-xs"></div> </div>
 </div>
 </div>

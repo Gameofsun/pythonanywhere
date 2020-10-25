@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html prefix="og: https://ogp.me/ns#" lang="th">
 <head>
@@ -66,7 +65,7 @@
 <span class="icon-bar"></span>
 <span class="icon-bar"></span>
 </button>
-<a class="navbar-brand" href="http://gameofsun.pythonanywhere.com/index">หน้าแรก</a>
+<a class="navbar-brand" href="http:http://gameofsun.pythonanywhere.com/index">หน้าแรก</a>
 </div>
 
 <div class="navbar-collapse collapse">
@@ -93,16 +92,25 @@
 <h3 class="panel-title">GameOfSun</h3>
 </div>
 <div class="panel-body">
-<div class="row">
-<div class="col-xs-6 col-sm-4 col-md-3 center_lnwphp">
-<div class="panel-body">
-<h1 style="text-align:center">ติดต่อเรา</h1>
-<h2 style="text-align:center">E-mail: Setthawat.sa.62@ubu.ac.th </h2>
-<h2 style="text-align:center">Facebook: https://www.facebook.com/GameOfSunGaming</h2>
-</div>
-</div>
 
-</div>
+
+
+ {% for g in comments %}
+    <div class="w3-row w3-margin-bottom" id="demo1" style="display:none">
+            <hr>
+              <div class="w3-col l2 m3">
+                <img src="/w3images/avatar_smoke.jpg" style="width:90px;">
+              </div>
+              <div class="w3-col l10 m9">
+                <h4>{{ g.namewrite }}g<span class="w3-opacity w3-medium">ให้คะแนน {{ g.rating }} คะแนน</span></h4>
+                <p>{{ g.detail }}</p>
+              </div>
+          </div>
+{% endfor %}
+
+
+
+
 <div class="clearfix visible-xs"></div> </div>
 </div>
 </div>
