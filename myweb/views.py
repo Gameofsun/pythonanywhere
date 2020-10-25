@@ -28,8 +28,10 @@ def Login(req):
     return render(req, 'myweb/login.html')
 
 def Rating(req):
-    comments = Comments.objects.all()
-    return render(req, 'myweb/rating.html',{'comments':comments})
+    Truecomments = Comments.objects.all()
+    for i in Truecomments:
+        print(i)
+    return render(req, 'myweb/rating.html',{'Truecomments':Truecomments})
 
 def Register(req):
     if req.method == "POST":

@@ -65,7 +65,7 @@
 <span class="icon-bar"></span>
 <span class="icon-bar"></span>
 </button>
-<a class="navbar-brand" href="http:http://gameofsun.pythonanywhere.com/index">หน้าแรก</a>
+<a class="navbar-brand" href="/index">หน้าแรก</a>
 </div>
 
 <div class="navbar-collapse collapse">
@@ -94,21 +94,20 @@
 <div class="panel-body">
 
 
+	{% for i in Truecomments %}
+	<div><hr>
+	    <p>
+	    ชื่อผู้เขียน: {{ i.namewrite }}
+	    </p>
+	    <p>
+	    ข้อความ: {{ i.detail }}
+	    </p>
+	    <p>
+	    ให้คะแนน: {{ i.rating}} คะแนน
+	    </p>
+    </div><hr>
 
- {% for g in comments %}
-    <div class="w3-row w3-margin-bottom" id="demo1" style="display:none">
-            <hr>
-              <div class="w3-col l2 m3">
-                <img src="/w3images/avatar_smoke.jpg" style="width:90px;">
-              </div>
-              <div class="w3-col l10 m9">
-                <h4>{{ g.namewrite }}g<span class="w3-opacity w3-medium">ให้คะแนน {{ g.rating }} คะแนน</span></h4>
-                <p>{{ g.detail }}</p>
-              </div>
-          </div>
-{% endfor %}
-
-
+	{% endfor %}
 
 
 <div class="clearfix visible-xs"></div> </div>
